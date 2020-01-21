@@ -1,25 +1,39 @@
 <template>
   <div>
-    <h3>Homes</h3>
-    <button @click="toUsers">Usersへいく</button>
-    <p>{{ count }}</p>
+    <h3>Home</h3>
+    <button @click="toUsers">Usersのページに行く</button>
+    <p>{{ doubleCount }}</p>
+    <p>{{ tripleCount }}</p>
+    <input
+      type="text"
+      v-model="message"
+    >
+    <p>{{message}}</p>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   computed: {
-    count(){
-      return this.$store.state.count;
+    ...mapGetters("count", ["doubleCount", "tripleCount"]),
+    message: {
+      get() {
+        return this.$store.getters.message;
+      },
+      set(value) {
+        this.$store.dispatch("updateMessage", value);
+      }
     }
   },
   methods: {
-    toUsers(){
+    toUsers() {
       this.$router.push({
-        name:'user-id-profile',
-        params:{id: 1}
+        name: "users-id-profile",
+        params: { id: 1 }
       });
     }
   }
-}
+};
 </script>

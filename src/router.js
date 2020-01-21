@@ -11,10 +11,7 @@ const HeaderHome = () =>
 const HeaderUsers = () =>
   import(/* webpackChunkName: "HeaderUsers" */ "./views/HeaderUsers.vue");
 
-
-
 Vue.use(Router);
-
 
 export default new Router({
   mode: "history",
@@ -24,9 +21,6 @@ export default new Router({
       components: {
         default: Home,
         header: HeaderHome
-      },
-      beforeEnter(to,from,next){
-        next()
       }
     },
     {

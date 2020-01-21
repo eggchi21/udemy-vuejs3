@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h2>user profile</h2>
+    <h2>ユーザーのプロフィール</h2>
   </div>
 </template>
